@@ -220,6 +220,7 @@ function onFormSubmit(event){
     event.preventDefault()
     var player_input = document.getElementById("player_name_input").value
     var phone_number = document.getElementById("phone_number").value
+    var country_code = document.getElementById("country_code").value
     // console.log(player_input, phone_number)
     fetch(url+'gimmeYourNumber',
     {
@@ -229,7 +230,7 @@ function onFormSubmit(event){
             'Content-Type': 'application/json'
         },
         mode: 'cors',
-        body: JSON.stringify({ "PlayerTag": player_input, "PhoneNumber":phone_number })
+        body: JSON.stringify({ "PlayerTag": player_input, "PhoneNumber":phone_number, "CountryCode":country_code })
     }).then((response) => {
         if (response.status == 200){
             document.getElementById("request_status").innerHTML="Success"

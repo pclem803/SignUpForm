@@ -195,19 +195,19 @@ async function getClanTags(){
             mode: 'cors',
         }
     ).then((response) => response.json())
-    .then((data) => console.log(data));
+    .then((data) => {
+        update_dropdown(data)
+    });
 }
 
 function onLoad(){
-    testGetClanTags()
+    getClanTags()
     var form = document.getElementById("my_form");
     form.addEventListener('submit', onFormSubmit)
 }
 
-
-function testGetClanTags(){
+function update_dropdown(members){
     var player_input = document.getElementById("player_name_input")
-    var members = JSON.parse(testdata)
     members.forEach((member, index) => {
         var newOption = document.createElement("option")
         newOption.value=member.tag

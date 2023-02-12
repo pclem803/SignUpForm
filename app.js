@@ -230,5 +230,11 @@ function onFormSubmit(event){
         },
         mode: 'cors',
         body: JSON.stringify({ "PlayerTag": player_input, "PhoneNumber":phone_number })
+    }).then((response) => {
+        if (response.status == 200){
+            document.getElementById("request_status").innerHTML="Success"
+        }else{
+            document.getElementById("request_status").innerHTML="Uh oh something went wrong... go talk to clem"
+        }
     })
 }
